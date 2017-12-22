@@ -1,0 +1,13 @@
+<%= form_with(model: @blog, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <section>
+    <div class="title"><%= form.label :title %></div>
+    <div class="content"><%= @blog.title %></div>
+  
+    <div class="title"><%= form.label :content %></div>
+    <div class="content"><%= @blog.content %></div>
+  </section>
+  
+  <div class="fixed_area_for_submit"><%= form.submit "Submit.", class: 'btn' %></div>
+<% end %>

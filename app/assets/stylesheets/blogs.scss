@@ -1,0 +1,82 @@
+// Place all the styles related to the Blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  font-family: BlinkMacSystemFont,"Helvetica Neue",YuGothic,'Yu Gothic',Verdana,Meiryo,sans-serif;
+  color: #383c3c;
+  background-color: #f7f6f5;
+}
+
+
+.main-title{
+  font-weight: normal;
+  letter-spacing: 5px;
+  margin: 40px 0px 10px 100px;
+}
+
+.container{
+  width: 70%;
+  margin: 20px;
+}
+
+section{
+  padding: 30px 100px;
+}
+
+.title{
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: underline;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.content{
+  font-weight: lighter;
+  height: 20px;
+  padding-bottom: 10px;
+}
+
+ul{
+  margin: 10px;
+  overflow: hidden;
+}
+
+ul.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.edit-menu li{
+  padding-right: 10px;
+  list-style: none;
+  float: left;
+}
+
+
+h5{
+  margin: 0px;
+}
+
+.link{
+  letter-spacing: 3px;
+  padding: 10px 100px;
+}
+
+h5 .create{
+  border: 1px solid black;
+}
+
+.btn{
+  height: 20px;
+  letter-spacing: 3px;
+  padding: 10px 100px;
+}
+
+
+ul.edit-menu.clearfix:after {
+    content: "テスト";
+    display: block;
+    clear: both;
+}

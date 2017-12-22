@@ -1,0 +1,19 @@
+<!--show-->
+<h5 class="create"><%= link_to "→ Create new.", new_blog_path %></h5>
+<section>
+  <div class="title">Title</div>
+  <div class="content"><%= @blog.title %></div>
+
+  <div class="title">Content</div>
+  <div class="content">
+    <%= @blog.content %>
+    <ul class="edit-menu clearfix">
+      <li><%= link_to "Edit", edit_blog_path(@blog.id) %></li>
+      <li><%= link_to "Delete", blog_path(@blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{@blog.title}\"?"} %></li>
+    </ul>
+  </div>
+
+</section>
+<footer>
+  <h5 class="link"><%= link_to "Back.", blogs_path %></h5>
+</footer>

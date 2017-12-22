@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple blog.</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="fixed"><%= link_to @page_title, blogs_path %></h1>
+    </header>
+    <div class="box margin-top"></div>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
