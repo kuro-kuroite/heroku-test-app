@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'blogs#index'
   resources :blogs do
     post :new_confirm, on: :collection
     patch :edit_confirm, on: :member

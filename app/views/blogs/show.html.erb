@@ -6,7 +6,7 @@
 
   <div class="title">Content</div>
   <div class="content">
-    <%= @blog.content %>
+    <%= simple_format(@blog.content) %>
     <ul class="edit-menu clearfix">
       <li><%= link_to "Edit", edit_blog_path(@blog.id) %></li>
       <li><%= link_to "Delete", blog_path(@blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{@blog.title}\"?"} %></li>
