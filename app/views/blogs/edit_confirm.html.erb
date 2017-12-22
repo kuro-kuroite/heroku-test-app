@@ -2,6 +2,7 @@
 <%= render "confirm" %>
 
 <%= form_with(model: @blog, local: true, url: edit_blog_path, method: :get) do |form| %>
+  <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
   <div class="fixed_area_for_back">
     <%= form.submit "Back." , name: "back", class: 'btn' %>
