@@ -1,6 +1,4 @@
-// Place all the styles related to the Blogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 html, body{
   font-family: BlinkMacSystemFont,"Helvetica Neue",YuGothic,'Yu Gothic',Verdana,Meiryo,sans-serif;
   margin: 0;
@@ -14,7 +12,7 @@ body {
 
 header{
   background-color: gray; }
-  
+
 .fixed{
   position: fixed;
   top: 0;
@@ -22,7 +20,7 @@ header{
   z-index: 100;
   width: 100%;
   height: 40px; }
-  
+
 .fixed a{
   text-decoration: none;
   color: #504946; }
@@ -66,7 +64,7 @@ section {
 
 .title a:hover{
   color: #b4aeb1; }
-  
+
 .content {
   font-weight: lighter;
   height: 20px;
@@ -76,7 +74,7 @@ span a {
   font-size: 10px;
   text-decoration: none;
   color: #504946; }
-  
+
 span a:hover {
   text-decoration: underline;
   color: #b4aeb1; }
@@ -86,10 +84,10 @@ ul {
   overflow: hidden; }
 
 ul .edit-menu .clearfix::after{
-  content: " "; 
-  display: block; 
-  height: 0; 
-  font-size:0;	
+  content: " ";
+  display: block;
+  height: 0;
+  font-size:0;
   clear: both; }
 
 .edit-menu li {
@@ -121,7 +119,7 @@ h5 {
 
 .link a {
   color: #504946; }
-  
+
 .link a:hover {
   color: #b4aeb1; }
 
@@ -155,7 +153,7 @@ footer{
   bottom: 280px;
   left: 130px;
   z-index: 100; }
-  
+
 .fixed_area_for_submit{
   position: fixed;
   bottom: 300px;

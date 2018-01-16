@@ -4,17 +4,41 @@
     <title>Simple blog.</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <h1 class="fixed"><%= link_to @page_title, blogs_path %></h1>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div class="navbar-brand" href="#"><h1><%= link_to "Simple blog.", root_path %></h1></div>
+            </div>
+
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><%= link_to "→ Home.", root_path %></li>
+                <li><%= link_to "→ Blogs index.", blogs_path %></li>
+                <li><%= link_to "→ Create new.", new_blog_path %></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
     </header>
-    <div class="box margin-top"></div>
-    <div class="container">
+    <div class="margin-top container margin-bottom">
       <%= yield %>
     </div>
+    <footer>
+      <p>DICオンライン2017年10月期　塩井　美咲</p>
+    </footer>
   </body>
 </html>

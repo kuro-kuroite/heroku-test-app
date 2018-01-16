@@ -1,17 +1,20 @@
 <!--index-->
-<h5 class="create"><%= link_to "→ Create new.", new_blog_path %></h5>
+<h5 class="create-new"><%= link_to "→ Create new.", new_blog_path %></h5>
 <div class="notice"><%= notice %></div>
-  <% @blogs.each do |blog| %>
-  <section>
-  <div class="title"><%= link_to blog.title, blog_path(blog.id) %></div>
-    <div class="content">
-      <%= truncate(blog.content, length: 70 ) %>
-      <span><%= link_to " Continue ", blog_path(blog.id) %></span>
-      <ul class="edit-menu clearfix">
-        <li><%= link_to "Edit", edit_blog_path(blog.id) %></li>
-        <li><%= link_to "Delete", blog_path(blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{blog.title}\"?"} %></li>
-      </ul>
-    </div>
-  </section>
-<% end %>
+  <section class="row">
+    <% @blogs.each do |blog| %>
 
+    <article class="show">
+      <div class="title col-md-2 col-sm-12"><%= link_to blog.title, blog_path(blog.id) %></div>
+      <div class="content col-md-7 col-sm-12">
+        <%= truncate(blog.content, length: 30 )  %>
+        <span><%= link_to " Continue ", blog_path(blog.id) %></span>
+      </div>
+      <ul class="edit-menu col-md-2 col-sm-12">
+        <li><%= link_to "→ Edit.", edit_blog_path(blog.id) %></li>
+        <li><%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{blog.title}\"?"} %></li>
+      </ul>
+    </article>
+
+    <% end %>
+  </section>

@@ -1,13 +1,18 @@
 <%= form_with(model: @blog, local: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
-  <section>
+  <section class="form row">
     <div class="title"><%= form.label :title %></div>
-    <div class="content"><%= @blog.title %></div>
-  
+    <div class="content"><%= simple_format(@blog.title) %></div>
+
     <div class="title"><%= form.label :content %></div>
     <div class="content"><%= @blog.content %></div>
   </section>
-  
-  <div class="fixed_area_for_submit"><%= form.submit "Submit.", class: 'btn' %></div>
+
+  <div class="confirm-submit-btn">
+    <ul class="edit-menu col-md-2 col-sm-12">
+      <li><%= form.submit "Submit.", id: 'btn' %></li>
+    </ul>
+  </div>
+
 <% end %>

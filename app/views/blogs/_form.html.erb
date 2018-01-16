@@ -4,19 +4,18 @@
     <% @blog.errors.full_messages.each do |error| %>
     <ul>
       <li><%= error %></li>
-    </ul> 
+    </ul>
     <% end %>
   <% end %>
 
-  <section>
+  <section class="form row">
     <div class="title"><%= form.label :title %></div>
     <div class="content"><%= form.text_field :title, class: 'text-title' %></div>
-  
+
     <div class="title"><%= form.label :content %></div>
     <div class="content"><%= form.text_area :content, class: 'text-content' %></div>
   </section>
-  <div class="fixed_area_for_confirm"><%= form.submit "Confirm...", class: 'btn' %></div>
+  <ul class="edit-menu form-menu">
+    <li><%= form.submit "Confirm...", id: 'btn' %></li>
+  </ul>
 <% end %>
-<footer>
-  <h5 class="link"><%= link_to "Back.", blogs_path %></h5>
-</footer>
