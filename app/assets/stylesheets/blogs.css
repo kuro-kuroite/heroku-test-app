@@ -15,8 +15,7 @@ section.row{
 }
 
 article.show{
-  padding-bottom: 5%;
-}
+  padding-bottom: 5%;}
 
 .title {
   font-weight: bolder;
@@ -71,8 +70,7 @@ ul .edit-menu{
   text-decoration: underline; }
 
 article .show-content{
-  padding; 200%;
-}
+  padding: 200%;}
 
 .show-content .title{
   margin: 2%;
@@ -181,4 +179,4 @@ input, textarea{
   left: 130px;
   z-index: 100;}
 
-/*# sourceMappingURL=blogs.css.map */*/
+/*# sourceMappingURL=blogs.css.map */
