@@ -1,0 +1,18 @@
+<body id="top">
+  <div class="back-rgba">
+    <section class="login-signup">
+
+      <h2>Log in.</h2>
+      <%= form_with(scope: :session, url: sessions_path) do |f| %>
+        <ul>
+          <li><%= f.label :email %></li>
+          <li><%= f.email_field :email %></li>
+          <li><%= f.label :password %></li>
+          <li><%= f.password_field :password %></li>
+          <li><%= f.submit :"Log in.", id:"btn" %></li>
+        </ul>
+      <% end %>
+
+    </section>
+  </div>
+</body>

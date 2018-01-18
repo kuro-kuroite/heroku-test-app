@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :find_blog_by_id, only:[:show, :edit, :update, :destroy, :edit_confirm]
+  before_action :before_logged_in
 
   def index
     @blogs = Blog.all.order(created_at: :desc)
@@ -16,7 +17,8 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      redirect_to blogs_path, notice: "Created new blog \"#{@blog.title}\"."
+      flash[:notice] = "Created new blog \"#{@blog.title}\"."
+      redirect_to blogs_path
     else
       render "new"
     end
@@ -33,7 +35,8 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "Edited blog \"#{@blog.title}\"."
+      flash[:notice] = "Edited blog \"#{@blog.title}\"."
+      redirect_to blogs_path
     else
       render "edit"
     end
@@ -41,7 +44,8 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice: "Deleted blog \"#{@blog.title}\"."
+    flash[:notice] = "Deleted blog \"#{@blog.title}\"."
+    redirect_to blogs_path
   end
 
   def new_confirm

@@ -1,0 +1,5 @@
+<h2><%= @user.name %></h2>
+<ul class="edit-menu show-edit-menu">
+  <li><%= link_to "→ Edit.", edit_user_path(@user.id) %></li>
+  <li><%= link_to "→ Back.", blogs_path %></li>
+</ul>

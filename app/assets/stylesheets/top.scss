@@ -1,11 +1,11 @@
 *{
   box-sizing: border-box;
 }
+
 html, body{
   font-family: BlinkMacSystemFont,"Helvetica Neue",YuGothic,'Yu Gothic',Verdana,Meiryo,sans-serif;
   margin: 0;
   padding: 0;
-  width:100%;
   height:100%; }
 
 body {
@@ -16,7 +16,13 @@ body#top{
   background-image: image-url("hedgehog.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 85%;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: normal;
+  letter-spacing: 3px;
 }
 
 header{
@@ -75,21 +81,16 @@ footer{
   left: 0;
   z-index: 100;
   width: 100%;
-  height: 50px;
+  height: 7.5%;
   background-color: white;
   opacity: 0.9; }
 
 footer p{
   text-align: right;
-  margin: 1% 8%;}
-
-.margin-top{
-  margin-top: 110px; }
-
-.margin-bottom{
-  margin-bottom:40px; }
+  margin: 1em 8%;}
 
 .back-rgba{
+  box-sizing: border-box;
   height: 100%;
   padding: 8%;
   background: rgba(255,255,255,0.6);
@@ -118,30 +119,103 @@ footer p{
   }
 }
 
-@media (max-width: 767px) {
-  .nav.navbar-nav{
-    li{
-    padding: 0  3%;
-    }
-  }
-  body#top{
-    height: 50%;
-    background-image: image-url("hedgehog.jpg");
-    background-position: center;
-  }
-  .back-rgba{
-    padding: 10%;
-  }
-  .top{
-    white-space: pre-line;
-    h3{
-      line-height: 90%;
-      margin-bottom: 15px;
-    }
-  }
-}
-
 .notice{
   font-family: BlinkMacSystemFont,"Helvetica Neue",YuGothic,'Yu Gothic',Verdana,Meiryo,sans-serif;
   font-weight: bold;
   }
+
+.login-signup{
+  margin-left: 10%;
+  h2{
+    margin-left: 5%;
+    margin-bottom: 3%;
+  }
+  li{
+    margin-bottom: 1%;
+    list-style: none;
+  }
+  input{
+    border: 2px solid #d4dcd3;
+  }
+  #btn{
+    margin-top: 2%;
+    border: 2px solid #d4dcd3;
+  }
+}
+
+.errors{
+  border: 2px solid #d4dcd3;
+  border-radius: 5px;
+  background-color: #e8ece9;
+  margin: 2%;
+  padding: 2%;
+  width: 50%;
+}
+
+.flash{
+  margin: 1%;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  .notice{
+    padding: 1%;
+    border: 2px solid #d4dcd3;
+    background-color: #e8ece9;
+    border-radius: 5px;
+  }
+  .danger{
+    padding: 1%;
+    border: 2px solid #fbdac8;
+    background-color: #fdede4;
+    border-radius: 5px;
+  }
+}
+
+
+//////// @media 768px  ////////////////////////////////
+
+  @media (max-width: 768px) {
+
+    .nav.navbar-nav{
+      li{
+      padding: 0  3%;
+      }
+    }
+    body#top{
+      height: 50%;
+      background-image: image-url("hedgehog.jpg");
+      background-position: center;
+    }
+    .back-rgba{
+      padding: 10%;
+    }
+    .top{
+      white-space: pre-line;
+      h3{
+        line-height: 90%;
+        margin-bottom: 15px;
+      }
+    }
+    .login-signup{
+      margin-left: 0%;
+      text-align: center;
+      ul{
+        padding-left: 0px;
+      }
+    }
+    .errors{
+      margin: 2%;
+      padding: 2%;
+      width: 100%;
+    }
+    .container {
+      margin: 30% auto;
+    }
+  }
+  //////// @media 320px  ////////////////////////////////
+
+  @media (max-width: 320px) {
+    .container {
+      margin: 40% auto;
+    }
+}
