@@ -1,0 +1,46 @@
+.favorites{
+  margin: 3% 0 3% 4%;
+  h5{
+    font-weight: bold;
+    display: inline;
+    transition: 0.3s;
+    .favorite-users-btn:hover{
+      color: #7b8d42;
+      text-decoration: underline;
+      cursor: pointer;
+      }
+  }
+  .like-btn-unlike{
+    color: #7a99cf;
+  }
+  .like-btn{
+    color: #de82a7;
+  }
+  li{
+    margin-left: 2%;
+    list-style: none;
+  }
+  a{
+    color: #504946;
+    transition: 0.3s;
+    &:hover{
+      color: #7b8d42;
+      font-weight: bold;
+    }
+  }
+}
+
+#favorite-users{
+  display: none;
+}
+
+.fav-author{
+  font-weight: bolder;
+  a:hover{
+    letter-spacing: 0.5px;
+  }
+}
+
+// Place all the styles related to the Favorites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/

@@ -25,6 +25,16 @@ h1, h2, h3, h4, h5, h6{
   letter-spacing: 3px;
 }
 
+ul{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-right: 1%;
+  padding-left: 1%; }
+
+a:hover{
+  text-decoration: none;
+}
+
 header{
   position: fixed;
   top: 0;
@@ -47,7 +57,6 @@ div.navbar-header {
         letter-spacing: 5px;
         margin-right: 30px;
       &:hover{
-          text-decoration: none;
           color: #504946;
       }
     }
@@ -66,8 +75,9 @@ div.navbar-brand{
     a{
       color: #504946;
       width: 100%;
+      transition: 0.3s;
       &:hover{
-        transition: 0.3s;
+        color: #7b8d42;
         text-decoration: underline;
       }
     }
@@ -144,9 +154,9 @@ footer p{
 }
 
 .errors{
-  border: 2px solid #d4dcd3;
+  border: 2px solid #fbdac8;
   border-radius: 5px;
-  background-color: #e8ece9;
+  background-color: #fdede4;
   margin: 2%;
   padding: 2%;
   width: 50%;
@@ -159,14 +169,14 @@ footer p{
   font-weight: bolder;
   .notice{
     padding: 1%;
-    border: 2px solid #d4dcd3;
-    background-color: #e8ece9;
+    border: 2px solid #a4c1d7;
+    background-color: rgba(255,255,255,0.6);
     border-radius: 5px;
   }
   .danger{
     padding: 1%;
-    border: 2px solid #fbdac8;
-    background-color: #fdede4;
+    border: 2px solid #e6bfb2;
+    background-color: rgba(255,255,255,0.6);
     border-radius: 5px;
   }
 }
@@ -175,10 +185,12 @@ footer p{
 //////// @media 768px  ////////////////////////////////
 
   @media (max-width: 768px) {
-
     .nav.navbar-nav{
       li{
-      padding: 0  3%;
+        padding: 0  3%;
+        a{
+          width: 20%;
+        }
       }
     }
     body#top{
@@ -211,11 +223,56 @@ footer p{
     .container {
       margin: 30% auto;
     }
+    .show:hover{
+      background-color: rgba(255,255,255,0);
+    }
+    .title{
+      margin-top: 25px;
+    }
+    .show-content .title{
+      margin: 6% 0% 2% 4%;
+    }
+    .show-content .content{
+      margin: 0% 4% 2% 6%;
+    }
+    .favorites{
+      margin: 6% 0 6% 4%;
+    }
   }
+
+  //////// @media 425px  ////////////////////////////////
+ @media (max-width: 425px) {
+   .nav.navbar-nav{
+     li{
+       padding: 0  3%;
+       a{
+         width: 100%;
+       }
+     }
+  }
+
+  .title {
+    margin-top: 20px;
+  }
+  article.user_content{
+    padding: 4%;
+    h4{
+      margin-bottom: 6%;
+    }
+  }
+  .show:hover{
+    background-color: rgba(255,255,255,0.7);
+  }
+  .fav-author{
+    margin-top: 0;
+    margin-bottom: 10%;
+  }
+}
+
   //////// @media 320px  ////////////////////////////////
 
   @media (max-width: 320px) {
     .container {
       margin: 40% auto;
     }
-}
+  }

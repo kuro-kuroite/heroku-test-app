@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
-  before_action :find_blog_by_id, only:[:show, :edit, :update, :destroy, :edit_confirm]
+  before_action :set_blog, only:[:show, :edit, :update, :destroy, :edit_confirm, :ensure_correct_post]
   before_action :before_logged_in
+  before_action :ensure_correct_post, only:[:edit, :update]
 
   def index
     @blogs = Blog.all.order(created_at: :desc)
@@ -15,7 +16,7 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.new(blog_params)
     if @blog.save
       flash[:notice] = "Created new blog \"#{@blog.title}\"."
       redirect_to blogs_path
@@ -25,6 +26,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
   def edit
@@ -49,7 +51,7 @@ class BlogsController < ApplicationController
   end
 
   def new_confirm
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.new(blog_params)
     render "new" unless @blog.valid?
   end
 
@@ -63,7 +65,14 @@ class BlogsController < ApplicationController
     params.require(:blog).permit(:title, :content)
   end
 
-  def find_blog_by_id
+  def set_blog
     @blog = Blog.find(params[:id])
+  end
+
+  def ensure_correct_post
+    if current_user.id != @blog.user_id.to_i
+      flash[:danger] = "Unauthorized access."
+      redirect_to blog_path(@blog.id)
+    end
   end
 end

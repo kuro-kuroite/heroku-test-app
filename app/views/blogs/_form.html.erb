@@ -1,11 +1,13 @@
 <%= form_with(model: @blog, local: true, url: url_new_or_edit, method: method_new_or_edit ) do |form| %> <!--url/methodはhelper参照-->
   <% if @blog.errors.any? %>
-    <p>You've got <%= @blog.errors.count %> ERRORs!</p>
-    <% @blog.errors.full_messages.each do |error| %>
-    <ul>
-      <li><%= error %></li>
-    </ul>
-    <% end %>
+    <div class="errors">
+      <p>You've got <%= pluralize(@blog.errors.count, "error") %>!</p>
+      <ul>
+        <% @blog.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <section class="form row">

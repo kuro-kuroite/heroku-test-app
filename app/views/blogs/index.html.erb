@@ -4,16 +4,21 @@
     <% @blogs.each do |blog| %>
 
     <article class="show">
-      <div class="title col-md-2 col-sm-12"><%= link_to blog.title, blog_path(blog.id) %></div>
-      <div class="content col-md-7 col-sm-12">
+      <div class="title col-md-3 col-sm-12"><%= link_to blog.title, blog_path(blog.id) %></div>
+      <div class="content col-md-5 col-sm-12">
         <%= truncate(blog.content, length: 30 )  %>
-        <span><%= link_to " Continue ", blog_path(blog.id) %></span>
+        <span><%= link_to " Continue ", blog_path(blog.id) if blog.content.length > 30 %></span>
+      </div>
+      <div class="author col-md-2  col-sm-12">
+        <%= link_to "→ #{blog.user.name}", user_path(blog.user_id) unless blog.user_id.nil?  %>
       </div>
       <ul class="edit-menu col-md-2 col-sm-12">
-        <li><%= link_to "→ Edit.", edit_blog_path(blog.id) %></li>
-        <li><%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{blog.title}\"?"} %></li>
+        <% if @current_user.id == blog.user_id %>
+          <li><%= link_to "→ Edit.", edit_blog_path(blog.id) %></li>
+          <li><%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{blog.title}\"?"} %></li>
+        <% end %>
       </ul>
-    </article>
+  </article>
 
     <% end %>
   </section>

@@ -7,14 +7,60 @@
       <%= @blog.title %>
     </div>
 
+    <% unless @blog.user_id.nil? %>
+      <div class="title">Author</div>
+      <div class="content">
+        <%= link_to @blog.user.name, user_path(@blog.user_id) %>
+      </div>
+    <% end %>
+
     <div class="title">Content</div>
     <div class="content">
       <p><%= @blog.content %></p>
       <ul class="edit-menu show-edit-menu">
-        <li><%= link_to "→ Edit.", edit_blog_path(@blog.id) %></li>
-        <li><%= link_to "→ Delete.", blog_path(@blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{@blog.title}\"?"} %></li>
+        <% if current_user.id == @blog.user_id %>
+          <li>
+            <%= link_to "→ Edit.", edit_blog_path(@blog.id) %>
+            <%= link_to "→ Delete.", blog_path(@blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{@blog.title}\"?"} %></li>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="favorites">
+      <h5>
+        <% if @favorite.present? %>
+          <%= link_to favorite_path(@favorite.id, blog_id: @blog.id), { method: :delete } do %>
+            <span class="fa fa-heart like-btn"></span>
+          <% end %>
+        <% else %>
+          <%= link_to favorites_path(blog_id: @blog.id), { method: :post } do %>
+            <span class="fa fa-heart like-btn-unlike"></span>
+          <% end %>
+        <% end %>
+        <% unless @blog.favorite_users.empty? %>
+        <span class="favorite-users-btn"><%= pluralize(@blog.favorite_users.count, "user") %>'s favorite.</span>
+        </h5>
+        <ul id="favorite-users">
+          <% @blog.favorite_users.each do |user| %>
+            <li><%= link_to user.name, user_path(user.id) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="content">
+      <ul class="edit-menu show-edit-menu">
         <li><%= link_to "→ Back.", blogs_path %></li>
       </ul>
     </div>
   </article>
 </section>
+
+<script>
+  $(function(){
+    $('.favorite-users-btn').click(function(){
+      $('#favorite-users').slideToggle(200);
+    });
+  });
+</script>

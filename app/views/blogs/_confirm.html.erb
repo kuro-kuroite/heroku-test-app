@@ -3,10 +3,10 @@
   <%= form.hidden_field :content %>
   <section class="form row">
     <div class="title"><%= form.label :title %></div>
-    <div class="content"><%= simple_format(@blog.title) %></div>
+    <div class="content"><%= @blog.title %></div>
 
     <div class="title"><%= form.label :content %></div>
-    <div class="content"><%= @blog.content %></div>
+    <div class="content"><%= simple_format(@blog.content) %></div>
   </section>
 
   <div class="confirm-submit-btn">

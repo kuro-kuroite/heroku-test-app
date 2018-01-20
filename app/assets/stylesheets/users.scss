@@ -1,0 +1,44 @@
+.user-menu{
+  margin-left: 2%;
+  h2{
+    margin-top: 0;
+  }
+  ul{
+    margin-left: 2%;    
+  }
+}
+
+article.user_content{
+    border: 2px solid #f8f4e6;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.7);
+    margin: 1%  2%;
+    padding: 2%;
+    p{
+      padding: 2%;
+    }
+    h4{
+      font-weight: bolder;
+      margin: 1%;
+    }
+    li{
+      list-style: none;
+      }
+  }
+
+.change-btn{
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover{
+    text-decoration: underline;
+    color: #7b8d42;
+  }
+}
+
+#blogs-btn{
+  display: none;
+}
+
+#favorites-show{
+  display: none;
+}

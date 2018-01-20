@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:show, :edit, :update]
+  before_action :set_user, only:[:show, :edit, :update, :ensure_correct_user]
   before_action :forbidden_login_user, only:[:new, :create]
+  before_action :ensure_correct_user, only:[:edit, :update]
 
   def new
     @user = User.new
@@ -39,5 +40,12 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def ensure_correct_user
+      if current_user.id != @user.id.to_i
+        flash[:danger] = "Unauthorized access."
+        redirect_to user_path(@user.id)
+      end
     end
 end

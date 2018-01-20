@@ -1,4 +1,7 @@
 .container {
+  position: relative;
+  top: auto;
+  left: auto;
   margin: 10% auto; }
 
 section.row{
@@ -7,30 +10,52 @@ section.row{
   margin: 0;
 }
 
+.show:hover{
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 5px; }
+
 article.show{
-  padding-bottom: 5%;}
+  padding-top: 1%;
+  padding-bottom: 3%;}
 
 .title {
   font-weight: bolder;
   letter-spacing: 3px;
   text-decoration: underline;
+  margin-top: 5px;
   margin-bottom: 10px; }
 
-.title a{
+.title p{
+  margin-bottom: 0;
+}
+
+.author {
+  font-weight: bolder;
+  margin-top: 5px;
+  margin-bottom: 10px; }
+
+.title a, .author a, .content a{
   color: #504946;
   transition: 0.3s; }
 
+.title a:hover, .author a:hover, .content a:hover{
+  color: #7b8d42; }
+
 .title a:hover{
-  color: #b4aeb1; }
+  letter-spacing: 3.5px; }
+
+.author a:hover{
+  letter-spacing: 0.5px; }
 
 .content{
+  margin-top: 5px;
   margin-bottom: 10px; }
 
 .content p {
   white-space: pre-wrap;
   font-weight: lighter;
   box-sizing: border-box;
-  margin-bottom: 30px; }
+  margin-bottom: 20px; }
 
 span a {
   font-size: 10px;
@@ -40,7 +65,7 @@ span a {
 
 span a:hover {
   text-decoration: underline;
-  color: #b4aeb1; }
+  color: #7b8d42; }
 
 
 ul .edit-menu{
@@ -60,33 +85,34 @@ ul .edit-menu{
   padding-right: 2%;}
 
 .edit-menu li a:hover{
-  text-decoration: underline; }
+  text-decoration: underline;
+  color: #7b8d42; }
 
 article .show-content{
   padding: 200%;}
 
 .show-content .title{
-  margin: 2%;
+  margin: 2% 0% 2% 4%;
 }
 
 .show-content .content{
-  margin: 2%;
+  margin: 0% 4% 2% 4%;
 }
 
 .show-edit-menu li{
-  margin-bottom: 5px;
-  display: block;
-}
+    margin-bottom: 5px;
+    display: block; }
 
 .create-new a{
   margin: 0% 1.5%;
   letter-spacing: 3px;
   color: #504946;
-  font-weight: bolder; }
+  font-weight: bolder;
+  transition: 0.4s}
 
 .create-new a:hover{
-  color: #b4aeb1;
-  transition: 0.3s; }
+  color: #7b8d42;
+  text-decoration: underline;}
 
 ul.form-menu{
   margin-top: 1%;}
@@ -113,20 +139,20 @@ input, textarea{
   width: 50%; }
 
 .form textarea{
-  height: 100px;
-  width: 60%; }
+  height: 70px;
+  width: 80%; }
 
 .confirm-submit-btn {
-  position: fixed;
-  bottom: 55%;
-  left: 10%;
+  position: absolute;
+  top: 100%;
+  left: 5%;
   z-index: 100;
 }
 
 .confirm-back-btn {
-  position: fixed;
-  bottom: 48%;
-  left: 10%;
+  position: absolute;
+  top: 125%;
+  left: 5%;
   z-index: 100;
 }
 

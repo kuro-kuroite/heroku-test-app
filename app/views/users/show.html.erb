@@ -1,5 +1,38 @@
-<h2><%= @user.name %></h2>
-<ul class="edit-menu show-edit-menu">
-  <li><%= link_to "→ Edit.", edit_user_path(@user.id) %></li>
-  <li><%= link_to "→ Back.", blogs_path %></li>
-</ul>
+<section>
+  <div class="row user-menu">
+    <h2><%= @user.name %></h2>
+
+    <ul class="edit-menu show-edit-menu col-sm-offset-1 col-sm-11">
+      <li class="change-btn">
+        <div id="favorites-btn">→ Favorites.</div>
+        <div id="blogs-btn">→ Blogs.</div>
+      </li>
+      <% if current_user.id == @user.id %>
+        <li><%= link_to "→ Edit your profire.", edit_user_path(@user.id) %></li>
+      <% end %>
+      <li><%= link_to "→ Back.", blogs_path %></li>
+    </ul>
+  </div>
+
+  <article class="user_content row">
+    <div id="blogs-show"><%= render "user_blogs" %></div>
+    <div id="favorites-show"><%= render "user_favorites" %></div>
+  </article>
+</section>
+
+<script>
+  $(function() {
+    $('#favorites-btn').on('click', function(){
+      $('#favorites-btn').toggle();
+      $('#blogs-btn').toggle();
+      $('#blogs-show').slideToggle(400);
+      $('#favorites-show').slideToggle(400);
+    });
+    $('#blogs-btn').on('click', function(){
+      $('#blogs-btn').toggle();
+      $('#favorites-btn').toggle();
+      $('#blogs-show').slideToggle(400);
+      $('#favorites-show').slideToggle(400);
+    });
+  });
+</script>
