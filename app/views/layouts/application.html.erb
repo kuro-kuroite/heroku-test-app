@@ -42,14 +42,14 @@
                   <li><%= link_to "→ Log out.", session_path(current_user.id), method: :delete %></li>
                 <% else %>
                   <li><%= link_to "→ Log in.", new_session_path %></li>
-                  <li><%= link_to "→ Sign in.", new_user_path %></li>
+                  <li><%= link_to "→ Sign up.", new_user_path %></li>
                 <% end %>
               </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <div class="margin-top container margin-bottom">
+    <div class="container">
       <%   flash.each do |key,value| %>
         <div class="flash"><%= content_tag(:div, value, class:"#{key}") %></div>
       <% end %>

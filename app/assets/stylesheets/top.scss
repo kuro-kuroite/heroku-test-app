@@ -137,8 +137,8 @@ footer p{
 .login-signup{
   margin-left: 10%;
   h2{
-    margin-left: 5%;
-    margin-bottom: 3%;
+    margin-top: 0;
+    margin-bottom: 5%;
   }
   li{
     margin-bottom: 1%;
@@ -199,7 +199,7 @@ footer p{
       background-position: center;
     }
     .back-rgba{
-      padding: 10%;
+      margin-top: -10%;
     }
     .top{
       white-space: pre-line;
@@ -250,7 +250,10 @@ footer p{
        }
      }
   }
-
+  .back-rgba{
+    margin-top: 5%;
+    padding: 5%;
+  }
   .title {
     margin-top: 20px;
   }
@@ -272,6 +275,10 @@ footer p{
   //////// @media 320px  ////////////////////////////////
 
   @media (max-width: 320px) {
+    .back-rgba{
+      margin-top: 8%;
+      padding: 5%;
+    }
     .container {
       margin: 40% auto;
     }
