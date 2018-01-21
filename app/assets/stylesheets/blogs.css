@@ -29,7 +29,9 @@
 }
 
 article.show{
+  padding: 0;
 }
+
 article.show:hover{
   background-color: rgba(255,255,255,0.7);
   border-radius: 5px; }
