@@ -3,8 +3,10 @@ class BlogsController < ApplicationController
   before_action :before_logged_in
   before_action :ensure_correct_post, only:[:edit, :update]
 
+  PER = 10
+
   def index
-    @blogs = Blog.all.order(created_at: :desc)
+    @blogs = Blog.page(params[:page]).per(PER).reverse_order
   end
 
   def new

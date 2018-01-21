@@ -2,7 +2,7 @@
 <% unless @user.favorite_blogs.empty? %>
   <% @user.favorite_blogs.each do |blog| %>
     <div class="title col-md-3 col-sm-12">
-      <%= link_to blog.title, blog_path(blog.id) %>
+      <%= link_to truncate(blog.title, length: 10 ), blog_path(blog.id) %>
     </div>
     <div class="content col-md-6 col-sm-7 col-xs-12">
       <%= truncate(blog.content, length: 25 )  %>

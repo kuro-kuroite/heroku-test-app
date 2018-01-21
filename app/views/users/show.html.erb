@@ -3,10 +3,10 @@
     <h2><%= @user.name %></h2>
 
     <ul class="edit-menu show-edit-menu col-sm-offset-1 col-sm-11">
-      <li class="change-btn">
+      <div class="change-btn">
         <div id="favorites-btn">→ Favorites.</div>
         <div id="blogs-btn">→ Blogs.</div>
-      </li>
+      </div>
       <% if current_user.id == @user.id %>
         <li><%= link_to "→ Edit your profire.", edit_user_path(@user.id) %></li>
       <% end %>

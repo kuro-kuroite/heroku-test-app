@@ -1,38 +1,54 @@
 .container {
+  margin: 10% auto;
+  height: 550px;
   position: relative;
-  top: auto;
-  left: auto;
-  margin: 10% auto; }
+  top: 100%;
+  left: 0; }
 
-section.row{
+.page{
+}
+
+.page.current{
+    font-size: 120%;
+    letter-spacing: 0.5px;
+  }
+.page a{
+  font-size: 90%;
+  letter-spacing: 0.5px;
+  }
+
+
+.page-bottom{
+  margin-bottom: 60px;
+}
+
+.row{
   padding: 1%;
   height: 10%;
   margin: 0;
 }
 
-.show:hover{
+article.show{
+}
+article.show:hover{
   background-color: rgba(255,255,255,0.7);
   border-radius: 5px; }
-
-article.show{
-  padding-top: 1%;
-  padding-bottom: 3%;}
 
 .title {
   font-weight: bolder;
   letter-spacing: 3px;
   text-decoration: underline;
-  margin-top: 5px;
-  margin-bottom: 10px; }
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 0;  }
 
 .title p{
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 .author {
-  font-weight: bolder;
-  margin-top: 5px;
-  margin-bottom: 10px; }
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 0; }
 
 .title a, .author a, .content a{
   color: #504946;
@@ -45,11 +61,12 @@ article.show{
   letter-spacing: 3.5px; }
 
 .author a:hover{
-  letter-spacing: 0.5px; }
+  text-decoration: underline; }
 
 .content{
-  margin-top: 5px;
-  margin-bottom: 10px; }
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 0; }
 
 .content p {
   white-space: pre-wrap;
@@ -82,7 +99,8 @@ ul .edit-menu{
 .edit-menu li a{
   color: #504946;
   text-decoration: none;
-  padding-right: 2%;}
+  padding-right: 2%;
+  font-size: 95%;}
 
 .edit-menu li a:hover{
   text-decoration: underline;
@@ -115,7 +133,8 @@ article .show-content{
   text-decoration: underline;}
 
 ul.form-menu{
-  margin-top: 1%;}
+  margin-top: 1%;
+  padding-left: 10%;}
 
 #btn{
   height: 35px;
@@ -136,7 +155,7 @@ input, textarea{
 
 .form input{
   height: 30px;
-  width: 50%; }
+  width: 30%; }
 
 .form textarea{
   height: 70px;
@@ -144,15 +163,15 @@ input, textarea{
 
 .confirm-submit-btn {
   position: absolute;
-  top: 100%;
-  left: 5%;
+  top: 45%;
+  left: 10%;
   z-index: 100;
 }
 
 .confirm-back-btn {
   position: absolute;
-  top: 125%;
-  left: 5%;
+  top: 55%;
+  left: 10%;
   z-index: 100;
 }
 

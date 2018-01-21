@@ -4,7 +4,7 @@
     margin-top: 0;
   }
   ul{
-    margin-left: 2%;    
+    margin-left: 2%;
   }
 }
 
@@ -29,6 +29,7 @@ article.user_content{
 .change-btn{
   transition: 0.3s;
   cursor: pointer;
+  margin-bottom: 0.5%;
   &:hover{
     text-decoration: underline;
     color: #7b8d42;
