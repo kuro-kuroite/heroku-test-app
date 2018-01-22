@@ -10,7 +10,6 @@
       <% if current_user.id == @user.id %>
         <li><%= link_to "→ Edit your profire.", edit_user_path(@user.id) %></li>
       <% end %>
-      <li><%= link_to "→ Back.", blogs_path %></li>
     </ul>
   </div>
 
