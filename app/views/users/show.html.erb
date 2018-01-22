@@ -4,8 +4,11 @@
 
     <ul class="edit-menu show-edit-menu col-sm-offset-1 col-sm-11">
       <div class="change-btn">
-        <div id="favorites-btn">→ Favorites.</div>
-        <div id="blogs-btn">→ Blogs.</div>
+
+        <!-- blogs・favoritegsへのリンク -->
+        <div id="favorites-btn"><%= link_to "→ Favorites.", favorites_user_path(@user.id) %></div>
+        <div id="blogs-btn"><%= link_to "→ Blogs.", blogs_user_path(@user.id) %></div>
+
       </div>
       <% if current_user.id == @user.id %>
         <li><%= link_to "→ Edit your profire.", edit_user_path(@user.id) %></li>
@@ -14,8 +17,7 @@
   </div>
 
   <article class="user_content row">
-    <div id="blogs-show"><%= render "user_blogs" %></div>
-    <div id="favorites-show"><%= render "user_favorites" %></div>
+   <!-- ここにblogs・favoritesのテンプレートを表示させたい -->
   </article>
 </section>
 

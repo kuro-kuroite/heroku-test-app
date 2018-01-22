@@ -1,7 +1,7 @@
 <h4>Blogs.</h4>
-<% unless @own_blogs.empty? %>
-  <div class="page col-md-12 col-sm-12"><%= paginate @own_blogs %></div>
-  <% @own_blogs.each do |blog| %>
+<% unless @user_blogs.empty? %>
+  <div class="page col-md-12 col-sm-12"><%= paginate @user_blogs %></div>
+  <% @user_blogs.each do |blog| %>
     <div class="title col-md-3 col-sm-12">
       <%= link_to truncate(blog.title, length: 10 ), blog_path(blog.id) %>
     </div>

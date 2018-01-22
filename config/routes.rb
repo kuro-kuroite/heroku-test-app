@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+
+  resources :users do
+    get :blogs, on: :member
+    get :favorites, on: :member
+  end
+
   resources :blogs do
     post :new_confirm, on: :collection
     patch :edit_confirm, on: :member
