@@ -5,8 +5,8 @@
     <ul class="edit-menu show-edit-menu col-sm-offset-1 col-sm-11">
       <div class="change-btn">
 
-        <div id="favorites-btn">→ Favorites.</div>
-        <div id="blogs-btn">→ Blogs.</div>
+        <div id="favorites-btn"><%= link_to "→ Favorites.", favorites_user_path(@user.id) %></div>
+        <div id="blogs-btn"><%= link_to "→ Blogs.", blogs_user_path(@user.id) %></div>
 
       </div>
       <% if current_user.id == @user.id %>
@@ -16,8 +16,7 @@
   </div>
 
   <article class="user_content row">
-    <div id="blogs-show"><%= render "user_blogs" %></div>
-    <div id="favorites-show"><%= render "favorite_blogs" %></div>
+    <%= yield :user_content %>
   </article>
 </section>
 

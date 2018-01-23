@@ -21,7 +21,13 @@ class UsersController < ApplicationController
     PER = 5
 
   def show
+  end
+
+  def blogs
     @user_blogs = @user.blogs.page(params[:page]).per(PER).reverse_order
+  end
+
+  def favorites
     @favorite_blogs = @user.favorite_blogs.page(params[:page]).per(PER).reverse_order
   end
 

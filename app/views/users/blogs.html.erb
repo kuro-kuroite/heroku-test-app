@@ -1,0 +1,29 @@
+<% content_for :user_contenet do %>
+  <h4>Blogs.</h4>
+  <% unless @user_blogs.empty? %>
+    <div class="page col-md-12 col-sm-12"><%= paginate @user_blogs, params:{content: :blog} %></div>
+    <% @user_blogs.each do |blog| %>
+      <div class="title col-md-3 col-sm-12">
+        <%= link_to truncate(blog.title, length: 10 ), blog_path(blog.id) %>
+      </div>
+      <div class="content col-md-6 col-sm-7 col-xs-12">
+        <%= truncate(blog.content, length: 30 )  %>
+        <span><%= link_to " Continue ", blog_path(blog.id) if blog.content.length > 30 %></span>
+      </div>
+      <ul class="edit-menu col-md-3 col-sm-5 col-xs-12">
+        <% if current_user.id == blog.user_id %>
+          <li>
+            <%= link_to "→ Edit.", edit_blog_path(blog.id) %>
+            <%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{blog.title}\"?"} %>
+          </li>
+        <% else %>
+          <li>
+            <%= "　　" %>
+         </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% else %>
+    <p> No blogs yet...</p>
+  <% end %>
+<% end %>
