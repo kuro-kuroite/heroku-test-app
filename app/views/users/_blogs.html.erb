@@ -1,4 +1,4 @@
-<% content_for :user_contenet do %>
+
   <h4>Blogs.</h4>
   <% unless @user_blogs.empty? %>
     <div class="page col-md-12 col-sm-12"><%= paginate @user_blogs, params:{content: :blog} %></div>
@@ -26,4 +26,3 @@
   <% else %>
     <p> No blogs yet...</p>
   <% end %>
-<% end %>

@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
-    get :blogs, on: :member
-    get :favorites, on: :member
+    member do
+      get :blogs
+      get :favorites
+    end
   end
 
   resources :blogs do

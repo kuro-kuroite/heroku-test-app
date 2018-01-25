@@ -1,0 +1,34 @@
+<h4>Favorites.</h4>
+<% unless @favorite_blogs.empty? %>
+  <div class="page col-md-12 col-sm-12"><%= paginate @favorite_blogs, params:{content: :favorite} %></div>
+  <% @favorite_blogs.each do |blog| %>
+    <div class="title col-md-3 col-sm-12">
+      <%= link_to truncate(blog.title, length: 10 ), blog_path(blog.id) %>
+    </div>
+    <div class="content col-md-6 col-sm-7 col-xs-12">
+      <%= truncate(blog.content, length: 25 )  %>
+      <span><%= link_to "Continue ", blog_path(blog.id) if blog.content.length > 25 %></span>
+    </div>
+    <div class="content fav-author col-md-3 col-sm-3 col-xs-12">
+      <% if @user.id == blog.user_id %>
+        <%= "　 #{@user.name}" %>
+      <% else %>
+        <% if blog.user.present? %>
+          <%= link_to "→ #{blog.user.name}", user_path(blog.user_id) %>
+        <% else %>
+          <%= "　 (No author)" %>
+        <% end %>
+      <% end %>
+    </div>
+    <!-- <ul class="edit-menu col-md-3 col-sm-5 col-xs-12">
+      <% if current_user.id == blog.user_id %>
+        <li>
+          <%= link_to "→ Edit.", edit_blog_path(blog.id) %>
+          <%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{blog.title}\"?"} %>
+        </li>
+      <% end %>
+    </ul> -->
+  <% end %>
+<% else %>
+  <p> No favorites yet...</p>
+<% end %>

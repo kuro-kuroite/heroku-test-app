@@ -5,8 +5,17 @@
     <ul class="edit-menu show-edit-menu col-sm-offset-1 col-sm-11">
       <div class="change-btn">
 
-        <div id="favorites-btn"><%= link_to "→ Favorites.", favorites_user_path(@user.id) %></div>
-        <div id="blogs-btn"><%= link_to "→ Blogs.", blogs_user_path(@user.id) %></div>
+      <% case params['content'] %>
+      <% when 'blog' %>
+        <div id="favorites-btn-2">→ Favorites.</div>
+        <div id="blogs-btn-2">→ Blogs.</div>
+      <% when 'favorite' %>
+        <div id="favorites-btn-3">→ Favorites.</div>
+        <div id="blogs-btn-3">→ Blogs.</div>
+      <% else %>
+        <div id="favorites-btn-1">→ Favorites.</div>
+        <div id="blogs-btn-1">→ Blogs.</div>
+      <% end %>
 
       </div>
       <% if current_user.id == @user.id %>
@@ -16,23 +25,63 @@
   </div>
 
   <article class="user_content row">
-    <%= yield :user_content %>
+    <% case params['content'] %>
+    <% when 'blog' %>
+      <div id="blogs-show-2"><%= render "blogs" %></div>
+      <div id="favorites-show-2"><%= render "favorites" %></div>
+    <% when 'favorite' %>
+      <div id="blogs-show-3"><%= render "blogs" %></div>
+      <div id="favorites-show-3"><%= render "favorites" %></div>
+    <% else %>
+      <div id="blogs-show-1"><%= render "blogs" %></div>
+      <div id="favorites-show-1"><%= render "favorites" %></div>
+    <% end %>
   </article>
 </section>
 
 <script>
   $(function() {
-    $('#favorites-btn').on('click', function(){
-      $('#favorites-btn').toggle();
-      $('#blogs-btn').toggle();
-      $('#blogs-show').slideToggle(400);
-      $('#favorites-show').slideToggle(400);
+    $('#favorites-btn-1').on('click', function(){
+      $('#favorites-btn-1').toggle();
+      $('#blogs-btn-1').toggle();
+      $('#blogs-show-1').slideToggle(400);
+      $('#favorites-show-1').slideToggle(400);
     });
-    $('#blogs-btn').on('click', function(){
-      $('#blogs-btn').toggle();
-      $('#favorites-btn').toggle();
-      $('#blogs-show').slideToggle(400);
-      $('#favorites-show').slideToggle(400);
+    $('#blogs-btn-1').on('click', function(){
+      $('#blogs-btn-1').toggle();
+      $('#favorites-btn-1').toggle();
+      $('#blogs-show-1').slideToggle(400);
+      $('#favorites-show-1').slideToggle(400);
+    });
+  });
+
+  $(function() {
+    $('#favorites-btn-2').on('click', function(){
+      $('#favorites-btn-2').toggle();
+      $('#blogs-btn-2').toggle();
+      $('#blogs-show-2').slideToggle(400);
+      $('#favorites-show-2').slideToggle(400);
+    });
+    $('#blogs-btn-2').on('click', function(){
+      $('#blogs-btn-2').toggle();
+      $('#favorites-btn-2').toggle();
+      $('#blogs-show-2').slideToggle(400);
+      $('#favorites-show-2').slideToggle(400);
+    });
+  });
+
+  $(function() {
+    $('#favorites-btn-3').on('click', function(){
+      $('#favorites-btn-3').toggle();
+      $('#blogs-btn-3').toggle();
+      $('#blogs-show-3').slideToggle(400);
+      $('#favorites-show-3').slideToggle(400);
+    });
+    $('#blogs-btn-3').on('click', function(){
+      $('#blogs-btn-3').toggle();
+      $('#favorites-btn-3').toggle();
+      $('#blogs-show-3').slideToggle(400);
+      $('#favorites-show-3').slideToggle(400);
     });
   });
 </script>
