@@ -20,7 +20,8 @@ class BlogsController < ApplicationController
   def create
     @blog = current_user.blogs.new(blog_params)
     if @blog.save
-      flash[:notice] = "Created new blog \"#{@blog.title}\"."
+      NoticeMailer.notice_mail(@blog).deliver
+      flash[:notice] = "新しい記事\"#{@blog.title}\"を投稿しました。"
       redirect_to blogs_path
     else
       render "new"
@@ -39,7 +40,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      flash[:notice] = "Edited blog \"#{@blog.title}\"."
+      flash[:notice] = "記事\"#{@blog.title}\"を編集しました。"
       redirect_to blogs_path
     else
       render "edit"
@@ -48,7 +49,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    flash[:notice] = "Deleted blog \"#{@blog.title}\"."
+    flash[:notice] = "記事\"#{@blog.title}\"を削除しました。"
     redirect_to blogs_path
   end
 

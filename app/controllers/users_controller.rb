@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(users_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "You've signed up!"
+      flash[:notice] = "ユーザー登録に成功しました。"
       redirect_to blogs_path
     else
       render "new"
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(users_params)
-      flash[:notice] = "You've edited your profile!"
+      flash[:notice] = "ユーザー情報を更新しました。"
       redirect_to user_path(@user.id)
     else
       render "edit"

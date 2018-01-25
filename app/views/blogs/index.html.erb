@@ -21,7 +21,7 @@
       <ul class="edit-menu col-md-2 col-sm-12">
         <li>
           ( <%= link_to "→ Edit.", edit_blog_path(blog.id) %>
-          <%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "Are you sure to delete \"#{blog.title}\"?"} %> )
+          <%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "本当に\"#{blog.title}\"を削除してもよろしいですか?"} %> )
         </li>
       </ul>
     <% end %>
