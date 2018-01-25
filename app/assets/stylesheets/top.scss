@@ -103,7 +103,7 @@ footer p{
 .back-rgba{
   box-sizing: border-box;
   height: 100%;
-  padding: 8%;
+  padding: 8% 8% 46% 8%;
   background: rgba(255,255,255,0.6);
   border-radius: 10px;
 }
@@ -147,10 +147,12 @@ footer p{
   }
   input{
     border: 2px solid #d4dcd3;
+    width: 250px;
   }
   #btn{
     margin-top: 2%;
     border: 2px solid #d4dcd3;
+    width: 80px;
   }
 }
 
@@ -200,7 +202,8 @@ footer p{
       background-position: center;
     }
     .back-rgba{
-      margin-top: -10%;
+      margin-top: -5%;
+      padding: 8%;
     }
     .top{
       white-space: pre-line;
@@ -214,6 +217,10 @@ footer p{
       text-align: center;
       ul{
         padding-left: 0px;
+      }
+      #btn{
+        width: 250px;
+        margin-top: 5%;
       }
     }
     .errors{
@@ -254,8 +261,14 @@ footer p{
      }
   }
   .back-rgba{
-    margin-top: 5%;
-    padding: 5%;
+    margin-top: -3%;
+    padding: 10% 5%;
+    height: 85%;
+  }
+  .login-signup{
+    #btn{
+      margin-top: 8%;
+    }
   }
   .title {
     margin-top: 20px;
@@ -280,7 +293,8 @@ footer p{
   @media (max-width: 320px) {
     .back-rgba{
       margin-top: 8%;
-      padding: 5%;
+      padding: 10% 5%;
+      height: 80%; 
     }
     .container {
       margin: 40% auto;

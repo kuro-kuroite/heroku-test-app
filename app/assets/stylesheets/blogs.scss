@@ -76,6 +76,10 @@ article.show:hover{
   box-sizing: border-box;
   margin-bottom: 20px; }
 
+.content a:hover{
+  text-decoration: underline;
+}
+
 span a {
   font-size: 10px;
   text-decoration: none;
