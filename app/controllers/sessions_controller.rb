@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   before_action :forbidden_login_user, only:[:new, :create]
 
   def new
+    render layout: 'top_page'
   end
 
   def create

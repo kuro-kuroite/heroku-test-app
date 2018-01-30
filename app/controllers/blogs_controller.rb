@@ -19,6 +19,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = current_user.blogs.new(blog_params)
+    @blog.image.retrieve_from_cache!(params[:cache][:image])
     if @blog.save
       NoticeMailer.notice_mail(@blog).deliver
       flash[:notice] = "新しい記事\"#{@blog.title}\"を投稿しました。"
@@ -39,6 +40,7 @@ class BlogsController < ApplicationController
   end
 
   def update
+    @blog.image.cache!(params[:cache][:image_url])
     if @blog.update(blog_params)
       flash[:notice] = "記事\"#{@blog.title}\"を編集しました。"
       redirect_to blogs_path
@@ -65,7 +67,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :image, :image_cache)
   end
 
   def set_blog
@@ -74,7 +76,7 @@ class BlogsController < ApplicationController
 
   def ensure_correct_post
     if current_user.id != @blog.user_id.to_i
-      flash[:danger] = "Unauthorized access."
+      flash[:danger] = "権限がありません。"
       redirect_to blog_path(@blog.id)
     end
   end

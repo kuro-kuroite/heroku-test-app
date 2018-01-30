@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render layout: 'top_page'
   end
 
   def create
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザー登録に成功しました。"
       redirect_to blogs_path
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
 
   private
     def users_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
     end
 
     def set_user
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
 
     def ensure_correct_user
       if current_user.id != @user.id.to_i
-        flash[:danger] = "Unauthorized access."
+        flash[:danger] = "権限がありません。"
         redirect_to user_path(@user.id)
       end
     end

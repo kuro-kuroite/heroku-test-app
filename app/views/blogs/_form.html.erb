@@ -1,7 +1,7 @@
 <%= form_with(model: @blog, local: true, url: url_new_or_edit, method: method_new_or_edit ) do |form| %> <!--url/methodはhelper参照-->
   <% if @blog.errors.any? %>
     <div class="errors">
-      <p>You've got <%= pluralize(@blog.errors.count, "error") %>!</p>
+      <p><%= @blog.errors.count %>件のエラーがあります。</p>
       <ul>
         <% @blog.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -16,6 +16,10 @@
 
     <div class="title"><%= form.label :content %></div>
     <div class="content"><%= form.text_area :content, class: 'text-content' %></div>
+
+    <div class="image"><%= form.file_field :image %></div>
+    <%= form.hidden_field :image_cache %>
+
   </section>
   <ul class="edit-menu form-menu">
     <li><%= form.submit "Confirm...", id: 'btn' %></li>

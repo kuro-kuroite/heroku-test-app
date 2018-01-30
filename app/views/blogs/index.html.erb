@@ -11,7 +11,8 @@
       </div>
       <div class="author col-md-2  col-sm-12">
         <% unless blog.user_id.nil? %>
-          <%= link_to "→ #{blog.user.name}", user_path(blog.user_id) unless blog.user_id.nil?  %>
+        <%= image_tag blog.user.image, class: "index-user-image" %>
+          <%= link_to "#{blog.user.name}", user_path(blog.user_id) unless blog.user_id.nil?  %>
         <% else %>
           <%= "　 (No author)" %>
         <% end %>

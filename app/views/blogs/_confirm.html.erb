@@ -1,12 +1,16 @@
 <%= form_with(model: @blog, local: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
+  <%= form.hidden_field :image %>
+
   <section class="form row">
     <div class="title"><%= form.label :title %></div>
     <div class="content"><%= @blog.title %></div>
 
     <div class="title"><%= form.label :content %></div>
     <div class="content"><%= simple_format(@blog.content) %></div>
+    <div class="image"><%= image_tag @blog.image.url, class: "blog-image" %></div>
+    <%= hidden_field_tag :"cache[image]", @blog.image.cache_name %>
   </section>
 
   <div class="confirm-submit-btn">
@@ -14,5 +18,4 @@
       <li><%= form.submit "Submit.", id: 'btn' %></li>
     </ul>
   </div>
-
 <% end %>

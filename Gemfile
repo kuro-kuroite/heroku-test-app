@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'kaminari', '~> 0.17.0'
 gem 'bcrypt', '3.1.11'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

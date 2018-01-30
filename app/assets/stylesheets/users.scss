@@ -8,6 +8,16 @@
   }
 }
 
+img.user-image{
+  width: 200px;
+}
+
+img.index-user-image{
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+}
+
 article.user_content{
     border: 2px solid #f8f4e6;
     border-radius: 5px;

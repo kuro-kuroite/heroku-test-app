@@ -1,12 +1,18 @@
-<!--edit_confirm-->
-<%= render "confirm" %>
+<div class="back-rgba">
+  <section class="login-signup">
+    <h2>Confirm...</h2>
 
-<%= form_with(model: @blog, local: true, url: edit_blog_path, method: :get) do |form| %>
-  <%= form.hidden_field :title %>
-  <%= form.hidden_field :content %>
-  <div class="confirm-back-btn">
-    <ul class="edit-menu col-md-2 col-sm-12">
-      <li><%= form.submit "Back." , name: "back", id: 'btn' %></li>
-    </ul>
-  </div>
-<% end %>
+    <%= render "confirm" %>
+
+    <%= form_with(model: @blog, local: true, url: edit_blog_path, method: :get) do |form| %>
+      <%= form.hidden_field :title %>
+      <%= form.hidden_field :content %>
+      <%= form.hidden_field :image %>
+      <div class="confirm-back-btn">
+        <ul class="edit-menu col-md-2 col-sm-12">
+          <li><%= form.submit "Back." , name: "back", id: 'btn' %></li>
+        </ul>
+      </div>
+    <% end %>
+  </section>
+</div>

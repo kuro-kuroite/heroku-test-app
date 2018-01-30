@@ -1,7 +1,7 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <% if @user.errors.any? %>
     <div class="errors">
-      <p>You've got <%= pluralize(@user.errors.count, "error") %>!</p>
+      <p><%= @user.errors.count %>件のエラーがあります。</p>
       <ul>
         <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -16,8 +16,13 @@
     <li><%= f.email_field :email %></li>
     <li><%= f.label :password %></li>
     <li><%= f.password_field :password %></li>
-    <li><%= f.label :"Password(Confirmation)" %></li>
+    <li><%= f.label :"password_confirmation" %></li>
     <li><%= f.password_field :password_confirmation %></li>
+
+    <li><%= f.label :"image" %></li>
+    <li><%= f.file_field :image, id: :user_image %></li>
+    <%= f.hidden_field :image_cache %>
+
     <li><%= f.submit :"Submit.", id:"btn" %></li>
   </ul>
 <% end %>

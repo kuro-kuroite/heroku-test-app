@@ -1,6 +1,5 @@
 .container {
   margin: 10% auto;
-  height: 550px;
   position: relative;
   top: 100%;
   left: 0; }
@@ -80,6 +79,10 @@ article.show:hover{
   text-decoration: underline;
 }
 
+img.blog-image{
+  width: 60%;
+}
+
 span a {
   font-size: 10px;
   text-decoration: none;
@@ -106,7 +109,7 @@ ul .edit-menu{
   color: #504946;
   text-decoration: none;
   padding-right: 2%;
-  font-size: 95%;}
+  font-size: 80%;}
 
 .edit-menu li a:hover{
   text-decoration: underline;
@@ -140,7 +143,7 @@ article .show-content{
 
 ul.form-menu{
   margin-top: 1%;
-  padding-left: 10%;}
+  height: auto;}
 
 #btn{
   height: 35px;
@@ -151,33 +154,26 @@ ul.form-menu{
 #btn:hover{
   background-color: #e8ece9; }
 
-.form{
-  margin-left: 8%;}
+section .form textarea{
+  width: 80%;
+}
 
-input, textarea{
-  border: 1px solid white;
-  border-radius: 7.5px;
-  padding: 5px; }
-
-.form input{
-  height: 30px;
-  width: 30%; }
-
-.form textarea{
-  height: 70px;
-  width: 80%; }
+section .form textarea{
+  width: 80%;
+  height: 50px;
+}
 
 .confirm-submit-btn {
   position: absolute;
-  top: 45%;
-  left: 10%;
+  top: 85%;
+  left: 18%;
   z-index: 100;
 }
 
 .confirm-back-btn {
   position: absolute;
-  top: 55%;
-  left: 10%;
+  top: 95%;
+  left: 18%;
   z-index: 100;
 }
 
