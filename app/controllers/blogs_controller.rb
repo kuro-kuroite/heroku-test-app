@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only:[:edit, :update, :destroy, :edit_confirm, :ensure_correct_post]
+  before_action :set_blog, only:[:show, :ensure_correct_post, :edit, :update, :destroy, :edit_confirm]
   before_action :before_logged_in
   before_action :ensure_correct_post, only:[:edit, :update]
 
@@ -9,11 +9,11 @@ class BlogsController < ApplicationController
     @blogs = Blog.page(params[:page]).per(PER).reverse_order
   end
 
-  def news
+  def new
     if params[:back]
-      @blog = Blog.new(blog_params)
+      @blog = current_user.blogs.new(blog_params)
     else
-      @blog = Blog.new
+      @blog = current_user.blogs.new
     end
   end
 
@@ -30,7 +30,6 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
@@ -73,8 +72,12 @@ class BlogsController < ApplicationController
   end
 
   def set_blog
-    @blog = current_user.blogs.find(params[:id])
+    @blog = Blog.find(params[:id])
   end
+
+  # def edit_blog
+  #   @blog = current_user.blogs.find(params[:id])
+  # end
 
   def ensure_correct_post
     if current_user.id != @blog.user_id.to_i
