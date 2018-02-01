@@ -14,7 +14,7 @@
           <% if blog.user.image.present? %>
             <%= image_tag blog.user.image, class: "index-user-image" %>
           <% else %>
-            <%= image_tag 'default_icon/nc97179', class: "index-user-image" %>
+            <%= image_tag 'nc97179', class: "index-user-image" %>
           <% end %>
           <%= link_to "#{blog.user.name}", user_path(blog.user_id) unless blog.user_id.nil?  %>
         <% else %>
