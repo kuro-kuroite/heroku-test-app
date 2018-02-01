@@ -10,7 +10,7 @@
     <div class="title"><%= form.label :content %></div>
     <div class="content"><%= simple_format(@blog.content) %></div>
     <div class="blog-image"><%= image_tag(@blog.image.url) if @blog.image.present? %></div>
-    <%= hidden_field_tag :"cache[image]", @blog.image.cache_name if @blog.image.present? %>
+    <%= hidden_field_tag :"cache[image]", @blog.image.cache_name%>
   </section>
 
   <div class="confirm-submit-btn">

@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = current_user.blogs.new(blog_params)
-    @blog.image.retrieve_from_cache!(params[:cache][:image]) if params[:image].present?
+    @blog.image.retrieve_from_cache!(params[:cache][:image]) if params[:cache][:image].present?
     if @blog.save
       # NoticeMailer.notice_mail(@blog).deliver
       flash[:notice] = "新しい記事\"#{@blog.title}\"を投稿しました。"
