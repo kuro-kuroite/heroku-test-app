@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only:[:show, :edit, :update, :destroy, :edit_confirm, :ensure_correct_post]
+  before_action :set_blog, only:[:edit, :update, :destroy, :edit_confirm, :ensure_correct_post]
   before_action :before_logged_in
   before_action :ensure_correct_post, only:[:edit, :update]
 
@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.page(params[:page]).per(PER).reverse_order
   end
 
-  def new
+  def news
     if params[:back]
       @blog = Blog.new(blog_params)
     else
@@ -30,6 +30,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @blog = Blog.find(params[:id])
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
@@ -40,8 +41,9 @@ class BlogsController < ApplicationController
   end
 
   def update
+    @blog.attributes = blog_params
     @blog.image.retrieve_from_cache!(params[:cache][:image]) if params[:cache][:image].present?
-    if @blog.save(blog_params)
+    if @blog.save
       flash[:notice] = "記事\"#{@blog.title}\"を編集しました。"
       redirect_to blogs_path
     else
@@ -67,11 +69,11 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content, :image, :image_cache)
+    params.require(:blog).permit(:title, :content, :user_id, :image, :image_cache)
   end
 
   def set_blog
-    @blog = Blog.find(params[:id])
+    @blog = current_user.blogs.find(params[:id])
   end
 
   def ensure_correct_post
