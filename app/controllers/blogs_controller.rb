@@ -19,9 +19,9 @@ class BlogsController < ApplicationController
 
   def create
     @blog = current_user.blogs.new(blog_params)
-    @blog.image.retrieve_from_cache!(params[:cache][:image])
+    @blog.image.retrieve_from_cache!(params[:cache][:image]) if params[:image].present?
     if @blog.save
-      NoticeMailer.notice_mail(@blog).deliver
+      # NoticeMailer.notice_mail(@blog).deliver
       flash[:notice] = "新しい記事\"#{@blog.title}\"を投稿しました。"
       redirect_to blogs_path
     else
@@ -40,8 +40,8 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @blog.image.cache!(params[:cache][:image_url])
-    if @blog.update(blog_params)
+    @blog.image.retrieve_from_cache!(params[:cache][:image]) if params[:cache][:image].present?
+    if @blog.save(blog_params)
       flash[:notice] = "記事\"#{@blog.title}\"を編集しました。"
       redirect_to blogs_path
     else

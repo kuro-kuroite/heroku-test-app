@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
+
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録に成功しました。"

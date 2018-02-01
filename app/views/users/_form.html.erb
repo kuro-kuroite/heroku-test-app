@@ -19,9 +19,11 @@
     <li><%= f.label :"password_confirmation" %></li>
     <li><%= f.password_field :password_confirmation %></li>
 
-    <li><%= f.label :"image" %></li>
-    <li><%= f.file_field :image, id: :user_image %></li>
-    <%= f.hidden_field :image_cache %>
+    <% if logged_in? %>
+      <li><%= f.label :"image" %></li>
+      <li><%= f.file_field :image, id: :user_image %></li>
+      <%= f.hidden_field :image_cache %>
+    <% end %>
 
     <li><%= f.submit :"Submit.", id:"btn" %></li>
   </ul>

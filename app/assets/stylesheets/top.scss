@@ -135,6 +135,7 @@ div.back-rgba{
   }
 
 .login-signup{
+  position: relative;
   margin-left: 10%;
   h2{
     margin-top: 0;
@@ -199,7 +200,6 @@ div.back-rgba{
       }
     }
     body#top{
-      height: 50%;
       background-image: image-url("hedgehog.jpg");
       background-position: center;
     }
@@ -256,19 +256,21 @@ div.back-rgba{
     ul.edit-menu.form-menu{
       margin-bottom: 5%;
     }
+
     .confirm-submit-btn {
-      position: absolute;
-      top: 45%;
-      left: 8%;
-      width: 80%;
-      z-index: 100;
+      bottom: -50px;
+      left: 0;
     }
+
     .confirm-back-btn {
-      position: absolute;
-      top: 55%;
-      left: 8%;
+      bottom: -50px;
+      left: 120px;
+    }
+    .blog-image img{
       width: 80%;
-      z-index: 100;
+    }
+    .edit-menu li.index-edit-menu  a{
+      font-size: 100%;
     }
   }
 
@@ -288,7 +290,6 @@ div.back-rgba{
     height: 85%;
   }
   .login-signup{
-    text-align: center;
     #btn{
       width: 250px;
       margin-top: 8%;
@@ -297,7 +298,6 @@ div.back-rgba{
     a{
       margin-left: 0;
     }
-
   }
   .title {
     margin-top: 20px;
@@ -310,7 +310,7 @@ div.back-rgba{
   }
   section .form{
     textarea, input{
-    width: 250px;
+    width: 85%;
     }
     textarea{
     height: 70px;
@@ -329,10 +329,28 @@ div.back-rgba{
   .confirm-submit-btn, .confirm-back-btn {
     text-align: center;
   }
-  img.blog-image{
+  .blog-image img{
     width: 100%;
   }
+  input#user_image{
+    margin: 0 auto;
+  }
+  input#feed_image{
+    margin: 0 auto;
+  }
 
+  .login-signup{
+    margin-bottom: 30%;
+  }
+  ul.edit-menu{
+    padding-left: 2px;
+  }
+  .confirm-submit-btn {
+    bottom: -60px;
+  }
+  confirm-back-btn {
+    bottom: -110px;
+  }
 }
 
   //////// @media 320px  ////////////////////////////////
@@ -340,13 +358,19 @@ div.back-rgba{
   @media (max-width: 320px) {
     .back-rgba{
       margin-top: 8%;
-      padding: 10% 5%;
+      padding: 15% 5%;
       height: 80%;
     }
     .container {
       margin: 40% auto;
     }
-    ul.edit-menu{
-      padding: 0%;
+    .confirm-submit-btn {
+      bottom: -60px;
+      left: 0;
     }
+    .confirm-back-btn {
+      bottom: -100px;
+      left: 0;
+    }
+
   }

@@ -11,7 +11,11 @@
       </div>
       <div class="author col-md-2  col-sm-12">
         <% unless blog.user_id.nil? %>
-        <%= image_tag blog.user.image, class: "index-user-image" %>
+          <% if blog.user.image.present? %>
+            <%= image_tag blog.user.image, class: "index-user-image" %>
+          <% else %>
+            <%= image_tag 'default_icon/nc97179', class: "index-user-image" %>
+          <% end %>
           <%= link_to "#{blog.user.name}", user_path(blog.user_id) unless blog.user_id.nil?  %>
         <% else %>
           <%= "　 (No author)" %>
@@ -20,7 +24,7 @@
     </article>
     <% if @current_user.id == blog.user_id %>
       <ul class="edit-menu col-md-2 col-sm-12">
-        <li>
+        <li class="index-edit-menu">
           ( <%= link_to "→ Edit.", edit_blog_path(blog.id) %>
           <%= link_to "→ Delete.", blog_path(blog.id), method: :delete, data:{confirm: "本当に\"#{blog.title}\"を削除してもよろしいですか?"} %> )
         </li>

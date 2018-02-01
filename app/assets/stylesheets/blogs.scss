@@ -1,6 +1,5 @@
 .container {
   margin: 10% auto;
-  position: relative;
   top: 100%;
   left: 0; }
 
@@ -79,7 +78,7 @@ article.show:hover{
   text-decoration: underline;
 }
 
-img.blog-image{
+.blog-image img{
   width: 60%;
 }
 
@@ -108,7 +107,9 @@ ul .edit-menu{
 .edit-menu li a{
   color: #504946;
   text-decoration: none;
-  padding-right: 2%;
+  padding-right: 2%;}
+
+.edit-menu li.index-edit-menu  a{
   font-size: 80%;}
 
 .edit-menu li a:hover{
@@ -165,15 +166,17 @@ section .form textarea{
 
 .confirm-submit-btn {
   position: absolute;
-  top: 85%;
-  left: 18%;
+  width: 80%;
+  bottom: -70px;
+  left: 0%;
   z-index: 100;
 }
 
 .confirm-back-btn {
   position: absolute;
-  top: 95%;
-  left: 18%;
+  width: 80%;
+  bottom: -70px;
+  left: 100px;
   z-index: 100;
 }
 

@@ -18,7 +18,7 @@
     <div class="content">
       <p><%= @blog.content %></p>
 
-      <div><%= image_tag @blog.image, class: "blog-image" %></div>
+      <div class="blog-image"><%= image_tag @blog.image.url if @blog.image? %></div>
 
       <ul class="edit-menu show-edit-menu">
         <% if current_user.id == @blog.user_id %>

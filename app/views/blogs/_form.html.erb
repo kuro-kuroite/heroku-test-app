@@ -17,8 +17,11 @@
     <div class="title"><%= form.label :content %></div>
     <div class="content"><%= form.text_area :content, class: 'text-content' %></div>
 
-    <div class="image"><%= form.file_field :image %></div>
-    <%= form.hidden_field :image_cache %>
+    <div class="blog-image">
+      <%= form.file_field :image, id: :feed_image, class:"col-md-12 col-sm-12 col-xs-12" %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+
 
   </section>
   <ul class="edit-menu form-menu">
